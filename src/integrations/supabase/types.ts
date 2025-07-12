@@ -14,7 +14,87 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      medical_profiles: {
+        Row: {
+          additional_notes: string | null
+          allergies: string | null
+          blood_group: string | null
+          chronic_conditions: string | null
+          created_at: string
+          emergency_contact_name: string
+          emergency_contact_phone: string
+          emergency_contact_relation: string | null
+          id: string
+          is_public: boolean | null
+          medications: string | null
+          qr_code_url: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          additional_notes?: string | null
+          allergies?: string | null
+          blood_group?: string | null
+          chronic_conditions?: string | null
+          created_at?: string
+          emergency_contact_name: string
+          emergency_contact_phone: string
+          emergency_contact_relation?: string | null
+          id?: string
+          is_public?: boolean | null
+          medications?: string | null
+          qr_code_url?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          additional_notes?: string | null
+          allergies?: string | null
+          blood_group?: string | null
+          chronic_conditions?: string | null
+          created_at?: string
+          emergency_contact_name?: string
+          emergency_contact_phone?: string
+          emergency_contact_relation?: string | null
+          id?: string
+          is_public?: boolean | null
+          medications?: string | null
+          qr_code_url?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          age: number | null
+          created_at: string
+          full_name: string
+          id: string
+          phone: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          age?: number | null
+          created_at?: string
+          full_name: string
+          id?: string
+          phone?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          age?: number | null
+          created_at?: string
+          full_name?: string
+          id?: string
+          phone?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

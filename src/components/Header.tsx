@@ -1,9 +1,11 @@
 import { Heart, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -34,8 +36,8 @@ export const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost">Sign In</Button>
-            <Button>Get Started</Button>
+            <Button variant="ghost" onClick={() => navigate('/auth')}>Sign In</Button>
+            <Button variant="medical" onClick={() => navigate('/auth')}>Get Started</Button>
           </div>
 
           <Button
@@ -65,8 +67,8 @@ export const Header = () => {
               </a>
             </nav>
             <div className="flex flex-col gap-2 pt-4 border-t">
-              <Button variant="ghost" className="justify-start">Sign In</Button>
-              <Button className="justify-start">Get Started</Button>
+              <Button variant="ghost" className="justify-start" onClick={() => navigate('/auth')}>Sign In</Button>
+              <Button variant="medical" className="justify-start" onClick={() => navigate('/auth')}>Get Started</Button>
             </div>
           </div>
         )}
