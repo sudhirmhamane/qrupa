@@ -24,8 +24,11 @@ export const CTA = () => {
           <h2 className="text-3xl lg:text-5xl font-bold mb-6">
             Ready to Protect Your Health?
           </h2>
+          <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+          "Scan. Save. Survive."
+          </h2>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
-            Join thousands of people who trust MedLink to keep their emergency medical information 
+            Join QRUPA to keep emergency medical information 
             accessible and secure. Start creating your life-saving QR profile today.
           </p>
         </div>
