@@ -7,6 +7,8 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Heart, LogOut, User, FileText, QrCode } from 'lucide-react';
 import QRCode from 'qrcode';
+import { QRCodeGenerator } from '@/components/QRCodeGenerator';
+import { MedicalProfileSummary } from '@/components/MedicalProfileSummary';
 
 interface MedicalProfile {
   id: string;
@@ -162,52 +164,46 @@ const Dashboard = () => {
           </Card>
 
           {/* QR Code */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <QrCode className="w-5 h-5" />
-                Emergency QR Code
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              {qrCodeDataUrl ? (
-                <div className="space-y-4">
-                  <img 
-                    src={qrCodeDataUrl} 
-                    alt="Emergency QR Code" 
-                    className="mx-auto"
-                  />
-                  <p className="text-sm text-muted-foreground">
-                    Share this QR code for emergency access to your medical information
-                  </p>
-                  <Button
-                    onClick={() => {
-                      const link = document.createElement('a');
-                      link.download = 'medlink-emergency-qr.png';
-                      link.href = qrCodeDataUrl;
-                      link.click();
-                    }}
-                    variant="outline"
-                  >
-                    Download QR Code
-                  </Button>
-                </div>
-              ) : (
-                <div className="py-8">
-                  <p className="text-muted-foreground">
-                    Create a medical profile to generate your emergency QR code
-                  </p>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+          {medicalProfile?.id ? (
+            <QRCodeGenerator
+              profileId={medicalProfile.id}
+              emergencyContactName={medicalProfile.emergency_contact_name}
+              emergencyContactPhone={medicalProfile.emergency_contact_phone}
+            />
+          ) : (
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <QrCode className="w-5 h-5" />
+                  Emergency QR Code
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-center py-8">
+                <p className="text-muted-foreground">
+                  Create a medical profile to generate your emergency QR code
+                </p>
+              </CardContent>
+            </Card>
+          )}
         </div>
 
+        {/* Medical Profile Summary */}
+        {medicalProfile && (
+          <div className="mt-8">
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <Heart className="w-6 h-6 text-medical-primary" />
+              Medical Profile Summary
+            </h2>
+            <MedicalProfileSummary profile={medicalProfile} />
+          </div>
+        )}
+
         {/* Actions */}
-        <div className="mt-8 flex gap-4">
+        <div className="mt-8 flex flex-col sm:flex-row gap-4">
           <Button 
             onClick={() => navigate('/profile/edit')}
             variant="medical"
+            size="lg"
             className="flex items-center gap-2"
           >
             <FileText className="w-4 h-4" />
@@ -218,6 +214,7 @@ const Dashboard = () => {
             <Button 
               onClick={() => navigate(`/emergency/${medicalProfile.id}`)}
               variant="outline"
+              size="lg"
             >
               Preview Emergency View
             </Button>

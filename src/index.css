@@ -68,6 +68,13 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Medical theme colors */
+    --medical-primary: 0 84% 50%;
+    --medical-secondary: 0 84% 45%;
+    --medical-accent: 38 92% 50%;
+    --medical-dark: 215 25% 15%;
+    --medical-light: 0 0% 95%;
   }
 
   .dark {

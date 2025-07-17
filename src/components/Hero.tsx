@@ -1,8 +1,20 @@
 import { Heart, Shield, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 
 export const Hero = () => {
+  const navigate = useNavigate();
+  
+  const handleGetStarted = () => {
+    navigate('/auth');
+  };
+
+  const handleViewDemo = () => {
+    // Navigate to a demo profile
+    navigate('/emergency/demo');
+  };
+
   return (
     <section className="relative py-20 px-4 bg-gradient-to-br from-background to-accent overflow-hidden">
       <div className="container mx-auto max-w-6xl">
@@ -25,10 +37,19 @@ export const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="text-lg px-8 py-6 bg-primary hover:bg-primary-hover">
+              <Button 
+                size="lg" 
+                onClick={handleGetStarted}
+                className="text-lg px-8 py-6 bg-primary hover:bg-primary-hover"
+              >
                 Get Started Free
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                onClick={handleViewDemo}
+                className="text-lg px-8 py-6"
+              >
                 View Demo
               </Button>
             </div>

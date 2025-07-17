@@ -9,6 +9,7 @@ import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import ProfileEdit from "./pages/ProfileEdit";
 import EmergencyView from "./pages/EmergencyView";
+import DemoEmergency from "./pages/DemoEmergency";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile/edit" element={<ProfileEdit />} />
             <Route path="/emergency/:profileId" element={<EmergencyView />} />
+            <Route path="/emergency/demo" element={<DemoEmergency />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

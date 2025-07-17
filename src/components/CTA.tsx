@@ -1,7 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Heart, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export const CTA = () => {
+  const navigate = useNavigate();
+  
+  const handleCreateProfile = () => {
+    navigate('/auth');
+  };
+
+  const handleLearnMore = () => {
+    // Scroll to features section
+    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="py-20 px-4 bg-primary text-primary-foreground">
       <div className="container mx-auto max-w-4xl text-center">
@@ -22,6 +34,7 @@ export const CTA = () => {
           <Button 
             size="lg" 
             variant="secondary" 
+            onClick={handleCreateProfile}
             className="text-lg px-8 py-6 bg-white text-primary hover:bg-gray-100"
           >
             Create Your Profile
@@ -30,6 +43,7 @@ export const CTA = () => {
           <Button 
             size="lg" 
             variant="outline" 
+            onClick={handleLearnMore}
             className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-primary"
           >
             Learn More
