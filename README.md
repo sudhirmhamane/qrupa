@@ -1,8 +1,8 @@
-# 🩺  QRUPA – Emergency Health QR System
+# 🩺 QRUPA – Emergency Health QR System
 
 > 🚑 A smart solution for emergency situations – MedLink stores your critical health data and links it to a scannable QR code for instant access by first responders.
 
-[![Live Demo](https://qrupa.vercel.app)
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Click%20Here-brightgreen?style=for-the-badge)](https://qrupa.vercel.app/)
 
 ---
 
