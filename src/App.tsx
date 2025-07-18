@@ -10,6 +10,10 @@ import Dashboard from "./pages/Dashboard";
 import ProfileEdit from "./pages/ProfileEdit";
 import EmergencyView from "./pages/EmergencyView";
 import DemoEmergency from "./pages/DemoEmergency";
+import FirstAid from "./pages/FirstAid";
+import HealthEducation from "./pages/HealthEducation";
+import SymptomChecker from "./pages/SymptomChecker";
+import HealthServices from "./pages/HealthServices";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +32,10 @@ const App = () => (
             <Route path="/profile/edit" element={<ProfileEdit />} />
             <Route path="/emergency/:profileId" element={<EmergencyView />} />
             <Route path="/emergency/demo" element={<DemoEmergency />} />
+            <Route path="/first-aid" element={<FirstAid />} />
+            <Route path="/health-education" element={<HealthEducation />} />
+            <Route path="/symptom-checker" element={<SymptomChecker />} />
+            <Route path="/health-services" element={<HealthServices />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
